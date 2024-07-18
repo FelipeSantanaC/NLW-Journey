@@ -11,3 +11,4 @@ _old
 *.tmp
 *.xlsx
 *.docx
+venv/
