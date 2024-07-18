@@ -9,10 +9,10 @@ class ParticipantsRepository:
         cursor = self.__conn.cursor()
         cursor.execute(
             '''
-                INSERT INTO participants
-                    (id, trip_id, emails_to_invite_id, name)
-                VALUES
-                    (?, ?, ?, ?)
+            INSERT INTO participants
+                (id, trip_id, emails_to_invite_id, name)
+            VALUES
+                (?, ?, ?, ?)
             ''', (
                 participant_infos["id"],
                 participant_infos["trip_id"],
@@ -25,12 +25,12 @@ class ParticipantsRepository:
     def find_participants_from_trip(self, trip_id: str) -> List[Tuple]:
         cursor = self.__conn.cursor()
         cursor.execute(
-            '''
-                SELECT p.id, p.name, p.is_confirmed, e.email
-                from participants as p
-                JOIN emails_to_invite as e ON e.id = p.emails_to_invite_id
-                WHERE p.trip_id = ?
-            ''', (trip_id,)
+        '''
+        SELECT p.id, p.name, p.is_confirmed, e.email
+        FROM participants AS p
+        JOIN emails_to_invite AS e ON e.id = p.emails_to_invite_id
+        WHERE p.trip_id = ?
+        ''', (trip_id,)
         )
         participants = cursor.fetchall()
         return participants
@@ -38,11 +38,10 @@ class ParticipantsRepository:
     def update_participant_status(self, participant_id: str) -> None:
         cursor = self.__conn.cursor()
         cursor.execute(
-            '''
-                UPDATE participants
-                    SET is_confirmed = 1
-                WHERE
-                    id = ?
-            ''', (participant_id,)
+        '''
+        UPDATE participants
+        SET is_confirmed = 1
+        WHERE id = ?
+        ''', (participant_id,)
         )
         self.__conn.commit()
