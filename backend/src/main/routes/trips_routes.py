@@ -36,7 +36,10 @@ def create_trip():
     conn = db_connection_handler.get_connection()
     trips_repository = TripsRepository(conn)
     emails_repository = EmailsToInviteRepository(conn)
-    controller = TripCreator(trips_repository, emails_repository)
+    participants_repository = ParticipantsRepository(conn)  # Adicionado
+
+    # Passando todos os repositórios necessários para o TripCreator
+    controller = TripCreator(trips_repository, emails_repository, participants_repository)
 
     response = controller.create(request.json)
 
