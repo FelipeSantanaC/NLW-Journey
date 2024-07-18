@@ -1,4 +1,4 @@
-from flask import jsonify, Blueprint, request # type: ignore
+from flask import jsonify, Blueprint, request
 
 trips_routes_bp = Blueprint("trip_routes", __name__)
 

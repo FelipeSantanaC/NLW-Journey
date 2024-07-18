@@ -1,4 +1,4 @@
-import pytest
+import pytest # type: ignore
 import uuid
 from datetime import datetime, timedelta
 from .trips_repository import TripsRepository
@@ -36,4 +36,4 @@ def test_update_trip_status():
     conn = db_connection_handler.get_connection()
     trips_repository = TripsRepository(conn)
 
-    trip = trips_repository.update_trip_status(trip_id)
+    trips_repository.update_trip_status(trip_id)

@@ -3,15 +3,15 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
 def send_email(to_addrs, body):
-    from_addr = "cpjftmrm2tj7bqrg@ethereal.email"
-    login = "cpjftmrm2tj7bqrg@ethereal.email"
-    password = "g1cuvwt3kU6cN67ySt"
+    from_addr = "diaj5qamnls7pxe2@ethereal.email"
+    login = "diaj5qamnls7pxe2@ethereal.email"
+    password = "x6qQ8VAG9dKyHrzFXP"
 
     msg = MIMEMultipart()
     msg["from"] = "viagens_confirmar@email.com"
     msg["to"] = ', '.join(to_addrs)
 
-    msg["Subject"] = "Confirmação de viagem"
+    msg["Subject"] = "Confirmação de Viagem!"
     msg.attach(MIMEText(body, 'plain'))
 
     server = smtplib.SMTP("smtp.ethereal.email", 587)

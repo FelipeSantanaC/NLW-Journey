@@ -1,5 +1,5 @@
-from flask import Flask # type: ignore
-from flask_cors import CORS # type: ignore
+from flask import Flask
+from flask_cors import CORS
 from src.main.routes.trips_routes import trips_routes_bp
 
 app = Flask(__name__)
